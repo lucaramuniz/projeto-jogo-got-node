@@ -1,4 +1,4 @@
 const app = require("./config/server");
-app.listen(80, () => {
-  console.log("bem vindo");
+app.listen(3000, () => {
+  console.log("Servidor online");
 });
