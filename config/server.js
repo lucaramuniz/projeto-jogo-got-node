@@ -28,9 +28,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /* efetua o autoload das rotas, dos models e dos controllers para o objeto app */
 consign()
-  .include("app/models")
-  .then("app/controllers")
-  .then("app/routes")
+  .include("config/dbConnection.js") // Carregue a conexão com o banco primeiro
+  .then("app/models") // Depois, carregue os modelos
+  .then("app/controllers") // Em seguida, carregue os controladores
+  .then("app/routes") // E por último, as rotas que usam os controladores
   .into(app);
 
 /* exportar o objeto app */
